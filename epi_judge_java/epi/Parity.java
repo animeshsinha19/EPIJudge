@@ -2,12 +2,23 @@ package epi;
 import epi.test_framework.EpiTest;
 import epi.test_framework.GenericTest;
 public class Parity {
+  // Brute force method
+  // @EpiTest(testDataFile = "parity.tsv")
+  // public static short parity(long x) {
+  //   short result = 0;
+  //   while(x != 0) {
+  //     result ^= (x & 1);
+  //     x >>>= 1;
+  //   }
+  //   return result;
+  // }
+
   @EpiTest(testDataFile = "parity.tsv")
   public static short parity(long x) {
     short result = 0;
     while(x != 0) {
-      result ^= (x & 1);
-      x >>>= 1;
+      result ^= 1;
+      x &= (x - 1);
     }
     return result;
   }
